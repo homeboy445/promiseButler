@@ -1,0 +1,7 @@
+node_modules
+
+# Ignore all JavaScript files
+*.js
+
+# Except for webpack configuration files
+!webpack.*.js
