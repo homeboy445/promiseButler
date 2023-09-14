@@ -32,16 +32,16 @@ export default class BatchedFetch implements IPromiseManager {
   }
 
   private async processPromise(
-    promise: Promise<any>,
+    callback: () => Promise<any>,
     idx: number
   ): Promise<any> {
     if (this.globalPromiseStore.pending) {
       await this.globalPromiseStore.promise;
-      return this.processPromise(promise, idx);
+      return this.processPromise(callback, idx);
     }
     this.log("adding the promise in the array! ", idx);
     this.requestsArr.push(
-      promise
+      callback()
         .then((r) => (this.promiseResolvedStore[idx] = r))
         .catch((e) => (this.promiseResolvedStore[idx] = e)
         .finally(() => this.promiseResolvedStore.resolve(idx))
@@ -60,7 +60,7 @@ export default class BatchedFetch implements IPromiseManager {
     }
   }
 
-  async dispatch(promises: Array<Promise<any>>): Promise<Array<any>> {
+  async dispatch(promises: Array<() => Promise<any>>): Promise<Array<any>> {
     if (this.globalPromiseStore.pending) {
       await this.globalPromiseStore.promise;
     }

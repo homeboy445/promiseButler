@@ -15,13 +15,13 @@ export default class SequentialFetch implements IPromiseManager {
     }
 
     // will work just like promise.all!
-    dispatch(promises: Array<Promise<any>>): Promise<any> {
+    dispatch(promises: Array<() => Promise<any>>): Promise<any> {
         const promiseResults: { [idx: number]: Promise<any> } = {};
         const _this = this;
         return new Promise((resolve, reject) => {
-            promises.forEach((promise, idx) => {
+            promises.forEach((callback, idx) => {
                 _this.requestPromise = _this.requestPromise.then(() => {
-                    return promise.then((r) => {
+                    return callback().then((r) => {
                         _this.log("The promise of index: ", idx, " is successfull!");
                         promiseResults[idx] = r;
                     }).catch((e) => {

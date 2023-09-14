@@ -10,7 +10,7 @@
     "forceConsistentCasingInFileNames": true, // Enforce consistent file naming
     "declaration": true, // Generate declaration files (.d.ts)
     "sourceMap": true, // Generate source maps for debugging
-    "lib": ["dom", "ES2018", "es5", "es6", "ES2015"]
+    "lib": ["dom", "ES2018"]
   },
   "include": ["src/**/*.ts"], // Specify which files to include in compilation
   "exclude": ["node_modules"] // Specify which files to exclude from compilation

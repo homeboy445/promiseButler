@@ -29,14 +29,14 @@ export default class PipelinedFetch implements IPromiseManager {
     }
   }
 
-  async dispatch(promises: Array<Promise<any>>): Promise<Array<any>> {
+  async dispatch(promises: Array<() => Promise<any>>): Promise<Array<any>> {
     return new Promise((resolve) => {
       for (let idx = 0; idx < promises.length; idx++) {
         const slotId = ++this.requestCounter % this.SLOT_SIZE;
         this.requestSlots[slotId] =
           this.requestSlots[slotId] || Promise.resolve();
         this.requestSlots[slotId].then(() => {
-          return promises[idx]
+          return promises[idx]()
             .then((r) => {
               this.promiseCompleteCallback(r);
               this.promiseStore[idx] = r;

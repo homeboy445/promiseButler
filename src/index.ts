@@ -16,7 +16,7 @@ const getInitializer = (
     slotSize: number;
     batchWiseCallback: (...args: any[]) => void;
     promiseCompleteCallback: (...args: any[]) => void;
-  }) => (promises: Array<Promise<any>>) => Promise<any[]>) => {
+  }) => (promises: Array<() => Promise<any>>) => Promise<any[]>) => {
   switch (requestMode) {
     case FETCH_MODES.SEQUENTIAL: {
       return (options: any = {}) => {
