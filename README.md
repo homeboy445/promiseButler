@@ -1,5 +1,5 @@
 # Promise Manager
-The Promise Manager is a versatile JavaScript package designed to manage the execution of promises in various ways. With this package, you can control whether promises are executed sequentially, in batches, or in a pipelined manner. This flexibility allows you to optimize the handling of asynchronous operations in your applications.
+The Promise Manager is a versatile JavaScript package designed to manage the execution of promises in various ways. With this package, you can control whether promises are executed sequentially, in batches, or in a pipelined manner. This flexibility allows you to optimize the handling of asynchronous operations in your applications. The promise manager expects an array of callback which is expected to return a promise, with which it takes care of the promise execution.
 
 NOTE: This is development & is not ready for use at the moment. This package will be published to npm once its DEV DONE.
 
