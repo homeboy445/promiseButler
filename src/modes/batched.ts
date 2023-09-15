@@ -20,9 +20,10 @@ export default class BatchedFetch implements IPromiseManager {
     debugMode?: boolean;
     batchWiseCallback: (...args: any[]) => void;
   }) {
-    this.debugMode = this.debugMode ?? debugMode;
+    this.debugMode = debugMode ?? this.debugMode;
     this.SLOT_SIZE = slotSize ?? this.SLOT_SIZE;
     this.batchWiseCallback = batchWiseCallback ?? this.batchWiseCallback;
+    this.log("Input params are: ", arguments);
   }
 
   private log(...args: any[]) {
@@ -47,7 +48,7 @@ export default class BatchedFetch implements IPromiseManager {
         .finally(() => this.promiseResolvedStore.resolve(idx))
         )
     );
-    if (this.requestsArr.length > this.SLOT_SIZE) {
+    if (this.requestsArr.length == this.SLOT_SIZE) {
       this.globalPromiseStore = {
         promise: Promise.all(this.requestsArr).then(() => {
           this.log("A batch got completed!");

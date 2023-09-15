@@ -7,7 +7,7 @@ import SequentialFetch from "./modes/sequential";
  * Initializing the fetcher and will return the appropriate callback for 
  * @param requestMode 
  * @param config 
- * @returns 
+ * @returns Function
  */
 const getInitializer = (
   requestMode: FETCH_MODES = FETCH_MODES.SEQUENTIAL,
@@ -47,5 +47,6 @@ const getInitializer = (
     }
   }
 };
+//https://cdn.jsdelivr.net/gh/homeboy445/promiseManager@1.0.0/release/main.js
 
-export default getInitializer;
+export { getInitializer };
