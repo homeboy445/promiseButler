@@ -4,8 +4,8 @@
   "description": "A package for managing multiple promises.",
   "main": "dist/main.js",
   "scripts": {
-    "build:dev": "tsc src/index.ts && webpack --config webpack.dev.js",
-    "build:prod": "tsc src/index.ts && webpack --config webpack.prod.js"
+    "build:dev": "tsc src/index.ts && webpack --config build/webpack.dev.js",
+    "build:prod": "tsc src/index.ts && webpack --config build/webpack.prod.js"
   },
   "author": "akshitsan13@gmail.com",
   "license": "ISC",
