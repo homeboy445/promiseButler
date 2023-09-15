@@ -5,5 +5,11 @@ test
 # Ignore all JavaScript files
 *.js
 
+# Don't ignore dist!
+!release/main.js
+!release/bundle.js
+
 # Except for webpack configuration files
 !webpack.*.js
+
+dist
