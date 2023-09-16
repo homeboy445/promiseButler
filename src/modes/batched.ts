@@ -40,12 +40,14 @@ export default class BatchedFetch implements IPromiseManager {
       await this.globalPromiseStore.promise;
       return this.processPromise(callback, idx);
     }
-    this.log("adding the promise in the array! ", idx);
+    this.log("Adding the promise in the array! ", idx)
     this.requestsArr.push(
       callback()
-        .then((r) => (this.promiseResolvedStore[idx] = r))
+        .then((r) => {
+          this.promiseResolvedStore[idx] = r;
+          this.promiseResolvedStore.resolve(idx);
+        })
         .catch((e) => (this.promiseResolvedStore[idx] = e)
-        .finally(() => this.promiseResolvedStore.resolve(idx))
         )
     );
     if (this.requestsArr.length == this.SLOT_SIZE) {

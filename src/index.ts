@@ -29,7 +29,7 @@ const getInitializer = (
         slotSize: number;
         batchWiseCallback: (...args: any[]) => void;
       }) => {
-        const modeObject = new BatchedFetch({ ...options, ...config });
+        const modeObject = new BatchedFetch({ ...config, ...options });
         return modeObject.dispatch.bind(modeObject);
       };
     }
@@ -38,7 +38,7 @@ const getInitializer = (
         slotSize: number;
         promiseCompleteCallback: (...args: any[]) => void;
       }) => {
-        const modeObject = new PipelinedFetch({ ...options, ...config });
+        const modeObject = new PipelinedFetch({ ...config, ...options });
         return modeObject.dispatch.bind(modeObject);
       };
     }

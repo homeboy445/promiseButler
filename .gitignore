@@ -12,4 +12,6 @@ test
 # Except for webpack configuration files
 !webpack.*.js
 
+!watcher.js
+
 dist

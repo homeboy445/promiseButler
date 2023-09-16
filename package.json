@@ -4,6 +4,7 @@
   "description": "A package for managing multiple promises.",
   "main": "dist/main.js",
   "scripts": {
+    "start": "node watcher.js ./src",
     "build:dev": "tsc src/index.ts && webpack --config build/webpack.dev.js",
     "build:prod": "tsc src/index.ts && webpack --config build/webpack.prod.js"
   },
