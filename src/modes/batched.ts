@@ -8,7 +8,7 @@ export default class BatchedFetch implements IPromiseManager {
   };
   private SLOT_SIZE = 6;
   private batchWiseCallback = (...args: any[]) => {};
-  private promiseResolvedStore: { [idx: number]: Promise<any>, resolve: (idx: number) => void } = { resolve: (idx: number) => {} };
+  private promiseResolvedStore: { [idx: number]: Promise<any>, resolve?: (idx: number) => void } = { resolve: (idx: number) => {} };
   debugMode = false;
 
   constructor({
@@ -45,7 +45,7 @@ export default class BatchedFetch implements IPromiseManager {
       callback()
         .then((r) => {
           this.promiseResolvedStore[idx] = r;
-          this.promiseResolvedStore.resolve(idx);
+          this.promiseResolvedStore?.resolve?.(idx);
         })
         .catch((e) => (this.promiseResolvedStore[idx] = e)
         )
@@ -72,6 +72,7 @@ export default class BatchedFetch implements IPromiseManager {
         this.log("The promise at index", idx, " is complete!");
         if (promises.length - 1 == idx) {
             this.log("All of the promises are resolved!");
+            delete this.promiseResolvedStore.resolve;
             resolve(Object.values(this.promiseResolvedStore));
         }
       };

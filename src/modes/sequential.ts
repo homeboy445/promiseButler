@@ -18,7 +18,7 @@ export default class SequentialFetch implements IPromiseManager {
     dispatch(promises: Array<() => Promise<any>>): Promise<any> {
         const promiseResults: { [idx: number]: Promise<any> } = {};
         const _this = this;
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
             promises.forEach((callback, idx) => {
                 _this.requestPromise = _this.requestPromise.then(() => {
                     return callback().then((r) => {

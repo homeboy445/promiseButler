@@ -29,14 +29,14 @@ export default class PipelinedFetch implements IPromiseManager {
     }
   }
 
-  async dispatch(promises: Array<() => Promise<any>>): Promise<Array<any>> {
+  async dispatch(promiseCallbacks: Array<() => Promise<any>>): Promise<Array<any>> {
     return new Promise((resolve) => {
-      for (let idx = 0; idx < promises.length; idx++) {
+      for (let idx = 0; idx < promiseCallbacks.length; idx++) {
         const slotId = ++this.requestCounter % this.SLOT_SIZE;
         this.requestSlots[slotId] =
           this.requestSlots[slotId] || Promise.resolve();
         this.requestSlots[slotId].then(() => {
-          return promises[idx]()
+          return promiseCallbacks[idx]()
             .then((r) => {
               this.promiseCompleteCallback(r);
               this.promiseStore[idx] = r;
@@ -47,8 +47,8 @@ export default class PipelinedFetch implements IPromiseManager {
             })
             .finally(() => {
               this.log("The promise at index:", idx, "is resolved!");
-              if (promises.length - 1 == idx) {
-                this.log("All of the promises are resolved now!");
+              if (promiseCallbacks.length - 1 == idx) {
+                this.log("All of the promiseCallbacks are resolved now!");
                 resolve(Object.values(this.promiseStore));
               }
             });
