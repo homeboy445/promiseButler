@@ -8,7 +8,7 @@ The Promise Manager is a versatile JavaScript package designed to manage the exe
 ### <ins>FETCH_MODES.BATCHED</ins>: Promises are executed in batches, allowing for concurrent execution within each batch. A batch will consist of any non-zero number and the promises will be awaited batch-wise, for illustration: `Promise.all(batch1).then(() => Promise.all(batch2))`
 ![image](https://github.com/homeboy445/promiseManager/assets/61937872/4baa6352-4651-4087-ad67-bbd91c84bda1)
 
-### <ins>FETCH_MODES.PIPELINING</ins>: Promises will be executed in a slot-wise manner i.e. promises will be assigned to certain slots and promises other than those allotted ones will be executed as soon as the slots get free - leading to proper resource utilization. This will ultimately also lead to promises being executed in a PIPELINED fashion.
+### <ins>FETCH_MODES.PIPELINING</ins>: Promises will be executed in a slot-wise manner i.e. promises will be assigned to certain slots and the rest of the promises will be executed as soon as the slots get free - leading to proper resource utilization. This will ultimately also lead to promises being executed in a PIPELINED fashion.
 ![image](https://github.com/homeboy445/promiseManager/assets/61937872/7fe6a226-c5db-4384-a339-4879daa54c90)
 
 
