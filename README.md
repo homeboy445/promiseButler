@@ -18,7 +18,8 @@ The Promise Manager is a versatile JavaScript package designed to manage the exe
 
 # Code Walkthrough
 ## Below is for the usage via CDN & packages.
-SEQUENTIAL MODE
+### SEQUENTIAL MODE
+- The executor callback will accept no params.
 ```
 const promiseArray = [() => Promise.resolve(), () => Promise.resolve()]; // Store the callbacks in the array which would return the promise to be awaited!
 const { getModeObject } = promiseManager;
@@ -26,15 +27,20 @@ const promiseExecutorCallback = getModeObject().SEQUENTIAL();
 await promiseExecutorCallback(promiseArray);
 ```
 
-BATCHING MODE
+### BATCHING MODE
+- The execute callback will accept two params, namely:-
+  - <strong>batchSize (1st positional param)</strong>: The number of batches the promise array should be divided into.
+  - <strong>batchWiseCallback (2nd positional param)</strong>: The callback that is to be executed as soon a batch gets completed.
 ```
 const promiseArray = [() => Promise.resolve(), () => Promise.resolve()]; // Store the callbacks in the array which would return the promise to be awaited!
 const { getModeObject } = promiseManager;
-const promiseExecutorCallback = getModeObject().BATCHED(6 /*slotSize*/, () => console.log("a batch got completed!") /*batchWiseCallback*/);
+const promiseExecutorCallback = getModeObject().BATCHED(6 /*batchSize*/, () => console.log("a batch got completed!") /*batchWiseCallback*/);
 await promiseExecutorCallback(promiseArray);
 ```
 
-PIPELINING MODE
+### PIPELINING MODE
+- The execute callback will accept on param, namely:-
+  - <strong>slotSize (1st positional param)</strong>: The number of slots the promises should be allocated to.
 ```
 const promiseArray = [() => Promise.resolve(), () => Promise.resolve()]; // Store the callbacks in the array which would return the promise to be awaited!
 const { getModeObject } = promiseManager;
