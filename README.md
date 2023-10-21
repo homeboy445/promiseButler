@@ -48,3 +48,6 @@ const promiseExecutorCallback = getModeObject().PIPELINING(6 /*slotSize*/);
 await promiseExecutorCallback(promiseArray);
 ```
 
+## Issues
+- If any issue is there in any of the modes, please feel free to report it by creating a ticket.
+
