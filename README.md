@@ -7,7 +7,7 @@ https://cdn.jsdelivr.net/gh/homeboy445/promiseManager/release/main.js
 
 ## NPM Package
 
-## Modes
+# Modes
 ### <ins>FETCH_MODES.SEQUENTIAL</ins>: Promises are executed sequentially, one after another.
 ![image](https://github.com/homeboy445/promiseManager/assets/61937872/4dc05ddc-d882-4f01-a0ba-386c31e1fd75)
 
