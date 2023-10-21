@@ -1,10 +1,11 @@
 {
-  "name": "@homeboy445/promise-manager",
+  "name": "promise-manager",
   "version": "1.0.0",
   "description": "A package for managing multiple promises in various ways.",
-  "main": "dist/main.js",
+  "main": "dist/package.js",
   "scripts": {
     "start": "node watcher.js ./src",
+    "build:package": "tsc src/index.ts && webpack --config build/webpack.package.js",
     "build:dev": "tsc src/index.ts && webpack --config build/webpack.dev.js",
     "build:prod": "tsc src/index.ts && webpack --config build/webpack.prod.js",
     "release": "yarn build:prod && mv dist/main.js release/"
