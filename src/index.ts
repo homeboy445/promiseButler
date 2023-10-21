@@ -40,6 +40,5 @@ const getModeObject = (
     },
   };
 };
-// https://cdn.jsdelivr.net/gh/homeboy445/promiseManager@1.0.0/release/main.js
 
 export { getModeObject };
