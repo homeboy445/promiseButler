@@ -6,22 +6,22 @@ export default class BatchedFetch implements IPromiseManager {
     promise: Promise.resolve(),
     pending: false,
   };
-  private SLOT_SIZE = 6;
+  private BATCH_SIZE = 6;
   private batchWiseCallback = (...args: any[]) => {};
   private promiseResolvedStore: { [idx: number]: Promise<any>, resolve?: (idx: number) => void } = { resolve: (idx: number) => {} };
   debugMode = false;
 
   constructor({
-    slotSize,
+    batchSize,
     debugMode,
     batchWiseCallback,
   }: {
-    slotSize?: number;
+    batchSize?: number;
     debugMode?: boolean;
     batchWiseCallback: (...args: any[]) => void;
   }) {
     this.debugMode = debugMode ?? this.debugMode;
-    this.SLOT_SIZE = slotSize ?? this.SLOT_SIZE;
+    this.BATCH_SIZE = batchSize ?? this.BATCH_SIZE;
     this.batchWiseCallback = batchWiseCallback ?? this.batchWiseCallback;
     this.log("Input params are: ", arguments);
   }
@@ -50,7 +50,7 @@ export default class BatchedFetch implements IPromiseManager {
         .catch((e) => (this.promiseResolvedStore[idx] = e)
         )
     );
-    if (this.requestsArr.length == this.SLOT_SIZE) {
+    if (this.requestsArr.length == this.BATCH_SIZE) {
       this.globalPromiseStore = {
         promise: Promise.all(this.requestsArr).then(() => {
           this.log("A batch got completed!");

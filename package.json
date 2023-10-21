@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node watcher.js ./src",
     "build:dev": "tsc src/index.ts && webpack --config build/webpack.dev.js",
-    "build:prod": "tsc src/index.ts && webpack --config build/webpack.prod.js"
+    "build:prod": "tsc src/index.ts && webpack --config build/webpack.prod.js",
+    "release": "yarn build:prod && mv dist/main.js release/"
   },
   "author": "akshitsan13@gmail.com",
   "license": "ISC",
