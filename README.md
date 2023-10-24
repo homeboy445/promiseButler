@@ -3,7 +3,7 @@ The Promise Manager is a versatile JavaScript package designed to manage the exe
 
 # Installation
 ## CDN link
-https://cdn.jsdelivr.net/gh/homeboy445/promiseManager/release/main.js
+[https://cdn.jsdelivr.net/gh/homeboy445/promiseManager/release/main.js](https://cdn.jsdelivr.net/gh/homeboy445/promiseManager/release/main.umd.js)
 
 ## NPM Package
 
