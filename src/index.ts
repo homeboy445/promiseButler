@@ -1,18 +1,19 @@
+/// <reference path="types/index.d.ts" />
 import { FETCH_MODES } from "./enums/modes";
 import BatchedFetch from "./modes/batched";
 import PipelinedFetch from "./modes/pipelined";
 import SequentialFetch from "./modes/sequential";
-import { GenericObject } from "./types/promiseManager";
+import { getModeObject } from "promise-manager";
 
 /**
- * Initializing the fetcher and will return the appropriate callback for
+ * Initializing the fetcher and will return the mode Object from which any mode can be initialized.
  * @param requestMode
  * @param config
  * @returns Function
  */
-const getModeObject = (
-  config: { debugMode: boolean } = { debugMode: false }
-): GenericObject => {
+const getModeObject: getModeObject = (
+  config = { debugMode: false }
+) => {
   return {
     [FETCH_MODES.SEQUENTIAL]: () => {
       const modeObject = new SequentialFetch(config);

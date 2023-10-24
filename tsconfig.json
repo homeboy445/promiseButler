@@ -1,4 +1,5 @@
 {
+  "compileOnSave": true,
   "compilerOptions": {
     "target": "ES2018", // Specify the ECMAScript target version
     "module": "CommonJS", // Specify the module system
@@ -8,9 +9,10 @@
     "esModuleInterop": true, // Allow default imports from CommonJS modules
     "skipLibCheck": true, // Skip type checking of declaration files
     "forceConsistentCasingInFileNames": true, // Enforce consistent file naming
-    "declaration": true, // Generate declaration files (.d.ts)
+    "declaration": false, // Generate declaration files (.d.ts)
     "sourceMap": true, // Generate source maps for debugging
-    "lib": ["dom", "ES2018"]
+    "lib": ["dom", "ES2018"],
+    "declarationMap": false,
   },
   "include": ["src/**/*.ts"], // Specify which files to include in compilation
   "exclude": ["node_modules"] // Specify which files to exclude from compilation

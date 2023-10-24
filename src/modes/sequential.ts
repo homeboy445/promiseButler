@@ -1,4 +1,4 @@
-import { IPromiseManager } from "../types/promiseManager";
+import { IPromiseManager } from "promise-manager";
 
 export default class SequentialFetch implements IPromiseManager {
     private requestPromise = Promise.resolve();
