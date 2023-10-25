@@ -1,5 +1,5 @@
 {
-  "name": "promise-manager",
+  "name": "promise-butler",
   "version": "1.0.0",
   "description": "A package for managing multiple promises in various ways.",
   "main": "release/main.cjs.js",
@@ -15,6 +15,9 @@
   "license": "ISC",
   "dependencies": {
     "typescript": "^5.2.2"
+  },
+  "repository": {
+    "url": "https://github.com/homeboy445/promiseButler"
   },
   "files": [
     "./release"
