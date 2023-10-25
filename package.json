@@ -1,6 +1,6 @@
 {
   "name": "promise-butler",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A package for managing multiple promises in various ways.",
   "main": "release/main.cjs.js",
   "module": "release/main.cjs.js",
