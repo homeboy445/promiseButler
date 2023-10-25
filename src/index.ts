@@ -1,4 +1,5 @@
 /// <reference path="types/index.d.ts" />
+import { getModeObject } from "promise-manager";
 import { FETCH_MODES } from "./enums/modes";
 import BatchedFetch from "./modes/batched";
 import PipelinedFetch from "./modes/pipelined";
@@ -10,7 +11,7 @@ import SequentialFetch from "./modes/sequential";
  * @param config
  * @returns Function
  */
-const getModeObject = (
+const getModeObject: getModeObject = (
   config = { debugMode: false }
 ) => {
   return {

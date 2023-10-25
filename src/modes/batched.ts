@@ -1,4 +1,4 @@
-import { IPromiseManager } from "../types";
+import { IPromiseManager } from "promise-manager";
 
 export default class BatchedFetch implements IPromiseManager {
   private requestsArr: Array<Promise<any>> = [];
