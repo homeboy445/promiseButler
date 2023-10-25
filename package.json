@@ -20,7 +20,7 @@
     "url": "https://github.com/homeboy445/promiseButler"
   },
   "files": [
-    "./release"
+    "./release/main.cjs.js"
   ],
   "types": "src/types/index.d.ts",
   "devDependencies": {
