@@ -1,5 +1,5 @@
-# Promise Manager
-The Promise Manager is a versatile JavaScript package designed to manage the execution of promises in various ways. With this package, you can control whether promises are executed sequentially, in batches, or in a pipelined manner. This flexibility allows you to optimize the handling of asynchronous operations in your applications. The promise manager expects an array of callbacks which is expected to return a promise, with which it takes care of the promise execution.
+# Promise Butler
+The Promise Butler is a versatile JavaScript package designed to manage the execution of promises in various ways. With this package, you can control whether promises are executed sequentially, in batches, or in a pipelined manner. This flexibility allows you to optimize the handling of asynchronous operations in your applications. The promise manager expects an array of callbacks which is expected to return a promise, with which it takes care of the promise execution.
 
 # Installation
 ## CDN link
@@ -10,12 +10,15 @@ The Promise Manager is a versatile JavaScript package designed to manage the exe
 # Modes
 ### <ins>FETCH_MODES.SEQUENTIAL</ins>: Promises are executed sequentially, one after another.
 ![image](https://github.com/homeboy445/promiseManager/assets/61937872/4dc05ddc-d882-4f01-a0ba-386c31e1fd75)
+<br />
 
 ### <ins>FETCH_MODES.BATCHED</ins>: Promises are executed in batches, allowing for concurrent execution within each batch. A batch will consist of any non-zero number and the promises will be awaited batch-wise, for illustration: `Promise.all(batch1).then(() => Promise.all(batch2))`
 ![image](https://github.com/homeboy445/promiseManager/assets/61937872/4baa6352-4651-4087-ad67-bbd91c84bda1)
+<br />
 
 ### <ins>FETCH_MODES.PIPELINING</ins>: Promises will be executed in a slot-wise manner i.e. promises will be assigned to certain slots and the rest of the promises will be executed as soon as the slots get free - leading to proper resource utilization. This will ultimately also lead to promises being executed in a PIPELINED fashion.
 ![image](https://github.com/homeboy445/promiseManager/assets/61937872/7fe6a226-c5db-4384-a339-4879daa54c90)
+<br />
 
 # Code Walkthrough
 ## Below is for the usage via CDN & packages.
