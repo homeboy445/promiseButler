@@ -9,7 +9,7 @@
     "esModuleInterop": true, // Allow default imports from CommonJS modules
     "skipLibCheck": true, // Skip type checking of declaration files
     "forceConsistentCasingInFileNames": true, // Enforce consistent file naming
-    "declaration": false, // Generate declaration files (.d.ts)
+    "declaration": true, // Generate declaration files (.d.ts)
     "sourceMap": true, // Generate source maps for debugging
     "lib": ["dom", "ES2018"],
     "declarationMap": false,

@@ -3,7 +3,6 @@ import { FETCH_MODES } from "./enums/modes";
 import BatchedFetch from "./modes/batched";
 import PipelinedFetch from "./modes/pipelined";
 import SequentialFetch from "./modes/sequential";
-import { getModeObject } from "promise-manager";
 
 /**
  * Initializing the fetcher and will return the mode Object from which any mode can be initialized.
@@ -11,7 +10,7 @@ import { getModeObject } from "promise-manager";
  * @param config
  * @returns Function
  */
-const getModeObject: getModeObject = (
+const getModeObject = (
   config = { debugMode: false }
 ) => {
   return {

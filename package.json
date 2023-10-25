@@ -20,9 +20,9 @@
     "url": "https://github.com/homeboy445/promiseButler"
   },
   "files": [
-    "./release/main.cjs.js"
+    "./release/"
   ],
-  "types": "src/types/index.d.ts",
+  "types": "src/release/index.d.ts",
   "devDependencies": {
     "@babel/core": "^7.22.17",
     "@babel/preset-env": "^7.22.15",
