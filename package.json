@@ -1,6 +1,6 @@
 {
   "name": "promise-butler",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A package for managing multiple promises in various ways.",
   "main": "release/main.cjs.js",
   "module": "release/main.cjs.js",
@@ -33,5 +33,10 @@
     "ts-loader": "^9.5.0",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4"
-  }
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ]
 }
