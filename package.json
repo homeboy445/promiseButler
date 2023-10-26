@@ -12,7 +12,7 @@
     "release": "npm run build:prod && mv dist/* release"
   },
   "author": "homeboy445",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "typescript": "^5.2.2"
   },
@@ -33,10 +33,5 @@
     "ts-loader": "^9.5.0",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4"
-  },
-  "licenses": [
-    {
-      "type": "MIT"
-    }
-  ]
+  }
 }
