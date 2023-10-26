@@ -21,12 +21,12 @@ The Promise Butler is a versatile JavaScript package designed to manage the exec
 <br />
 
 # Code Walkthrough
-## Below is for the usage via CDN & packages.
+## Below is for the usage via CDN.
 ### SEQUENTIAL MODE
 - The executor callback will accept no params.
 ```
 const promiseArray = [() => Promise.resolve(), () => Promise.resolve()]; // Store the callbacks in the array which would return the promise to be awaited!
-const { getModeObject } = promiseManager;
+const { getModeObject } = promiseButler;
 const promiseExecutorCallback = getModeObject().SEQUENTIAL();
 await promiseExecutorCallback(promiseArray);
 ```
@@ -37,7 +37,7 @@ await promiseExecutorCallback(promiseArray);
   - <strong>batchWiseCallback (2nd positional param)</strong>: The callback that is to be executed as soon a batch gets completed.
 ```
 const promiseArray = [() => Promise.resolve(), () => Promise.resolve()]; // Store the callbacks in the array which would return the promise to be awaited!
-const { getModeObject } = promiseManager;
+const { getModeObject } = promiseButler;
 const promiseExecutorCallback = getModeObject().BATCHED(6 /*batchSize*/, () => console.log("a batch got completed!") /*batchWiseCallback*/);
 await promiseExecutorCallback(promiseArray);
 ```
@@ -47,7 +47,7 @@ await promiseExecutorCallback(promiseArray);
   - <strong>slotSize (1st positional param)</strong>: The number of slots the promises should be allocated to.
 ```
 const promiseArray = [() => Promise.resolve(), () => Promise.resolve()]; // Store the callbacks in the array which would return the promise to be awaited!
-const { getModeObject } = promiseManager;
+const { getModeObject } = promiseButler;
 const promiseExecutorCallback = getModeObject().PIPELINING(6 /*slotSize*/);
 await promiseExecutorCallback(promiseArray);
 ```

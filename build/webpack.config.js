@@ -31,7 +31,7 @@ const baseConfig = {
 };
 
 const umdExportConfig = merge(baseConfig, {
-  output: { filename: "main.umd.js", libraryTarget: "umd", library: "promiseManager", },
+  output: { filename: "main.umd.js", libraryTarget: "umd", library: "promiseButler", },
 });
 
 const commonJsExportConfig = merge(baseConfig, {
