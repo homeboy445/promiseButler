@@ -1,15 +1,12 @@
 # Promise Butler
 The Promise Butler is a versatile JavaScript package designed to manage the execution of promises in various ways. With this package, you can control whether promises are executed sequentially, in batches, or in a pipelined manner. This flexibility allows you to optimize the handling of asynchronous operations in your applications. The promise manager expects an array of callbacks which is expected to return a promise, with which it takes care of the promise execution.
 
-NOTE: The typescript types might not currently correctly function, this is WIP.
-<br>
-<br>
 <br>
 
 # Installation
 
 ## Bundled File
-/release/main.min.js
+[main.min.js](https://github.com/homeboy445/promiseButler/blob/main/release/index.js)
 
 ## CDN link (loading bundled file externally)
 [https://cdn.jsdelivr.net/gh/homeboy445/promiseManager/release/main.umd.js](https://cdn.jsdelivr.net/gh/homeboy445/promiseManager/release/main.umd.js)
