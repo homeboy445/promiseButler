@@ -8,9 +8,13 @@ The Promise Butler is a versatile JavaScript package designed to manage the exec
 ## Bundled File
 [main.min.js](https://github.com/homeboy445/promiseButler/blob/main/release/index.js)
 
-## CDN link (loading bundled file externally)
-[https://cdn.jsdelivr.net/gh/homeboy445/promiseManager/release/main.umd.js](https://cdn.jsdelivr.net/gh/homeboy445/promiseManager/release/main.min.js)
 <br>
+
+## CDN link (loading bundled file externally)
+[https://cdn.jsdelivr.net/gh/homeboy445/promiseManager/release/main.min.js](https://cdn.jsdelivr.net/gh/homeboy445/promiseManager/release/main.min.js)
+
+<br>
+
 ## NPM Package
 Install it via ```npm i promise-butler``` (https://www.npmjs.com/package/promise-butler).
 <br>
