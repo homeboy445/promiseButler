@@ -24,4 +24,4 @@ All notable changes to this project will be documented in this file.
 
 ### Updated
 
-## [1.0.5] - 2023-10-28
+## [1.0.6] - 2023-10-28
