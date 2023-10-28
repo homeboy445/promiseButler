@@ -1,6 +1,6 @@
 {
   "name": "promise-butler",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A package for managing multiple promises in various ways.",
   "main": "release/main.cjs",
   "browser": "release/main.min.js",
@@ -34,7 +34,6 @@
     "./release/",
     "./types/index.d.ts"
   ],
-  "type": "module",
   "types": "./types/index.d.ts",
   "devDependencies": {
     "@babel/core": "^7.22.17",
