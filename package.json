@@ -1,15 +1,25 @@
 {
   "name": "promise-butler",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A package for managing multiple promises in various ways.",
-  "main": "release/main.cjs.js",
-  "module": "release/main.cjs.js",
-  "browser": "release/main.umd.js",
+  "main": "release/main.cjs",
+  "browser": "release/main.min.js",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "import": "./release/index.js",
+      "require": "./release/main.cjs",
+      "node": "./release/main.cjs",
+      "default": "./release/index.js",
+      "browser": "./release/main.min.js"
+    },
+    "./package.json": "./package.json"
+  },
   "scripts": {
     "start": "npm run build:dev && node watcher.js ./src",
-    "build:dev": "cross-env BUILD_MODE=DEV webpack --config build/webpack.config.js",
-    "build:prod": "webpack --config build/webpack.config.js",
-    "release": "npm run build:prod && mv dist/* release"
+    "build:dev": "cross-env BUILD_MODE=DEV webpack --config build/webpack.config.cjs",
+    "build:prod": "webpack --config build/webpack.config.cjs",
+    "release": "tsc && npm run build:prod && rm -r release/* && mv -f dist/* release"
   },
   "author": "homeboy445",
   "license": "MIT",
@@ -17,12 +27,14 @@
     "typescript": "^5.2.2"
   },
   "repository": {
+    "type": "git",
     "url": "https://github.com/homeboy445/promiseButler"
   },
   "files": [
     "./release/",
-    "./types/"
+    "./types/index.d.ts"
   ],
+  "type": "module",
   "types": "./types/index.d.ts",
   "devDependencies": {
     "@babel/core": "^7.22.17",

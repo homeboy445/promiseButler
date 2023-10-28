@@ -1,4 +1,4 @@
-import { IPromiseManager, GenericObject } from "promise-manager";
+import { IPromiseManager, GenericObject } from "../../types/util";
 
 /**
  * This mode will execute promise in a concurrent manner using the concepts of slots where whenever a slot

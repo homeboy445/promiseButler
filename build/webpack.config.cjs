@@ -8,6 +8,9 @@ const baseConfig = {
   output: {
     path: path.resolve(__dirname, "../dist"),
   },
+  resolve: {
+    extensions: ['.ts', '.js', '.json']
+  },
   mode: isDevBuild ? "development" : "production",
   module: {
     rules: [
@@ -31,11 +34,11 @@ const baseConfig = {
 };
 
 const umdExportConfig = merge(baseConfig, {
-  output: { filename: "main.umd.js", libraryTarget: "umd", library: "promiseButler", },
+  output: { filename: "main.min.js", libraryTarget: "umd", library: "promiseButler", },
 });
 
 const commonJsExportConfig = merge(baseConfig, {
-  output: { filename: "main.cjs.js", libraryTarget: "commonjs2" },
+  output: { filename: "main.cjs", libraryTarget: "commonjs2" },
 });
 
 module.exports = [umdExportConfig, commonJsExportConfig];
