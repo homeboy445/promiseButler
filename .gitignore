@@ -6,7 +6,7 @@ test
 *.js
 
 # Don't ignore release file!
-!release/*.js
+!release/**/*.js
 
 # Except for webpack configuration files
 !webpack.*.js
