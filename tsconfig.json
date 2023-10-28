@@ -1,8 +1,8 @@
 {
   "compileOnSave": true,
   "compilerOptions": {
-    "target": "ES2018", // Specify the ECMAScript target version
-    "module": "CommonJS", // Specify the module system
+    "target": "ES6", // Specify the ECMAScript target version
+    "module": "ES6", // Specify the module system
     "outDir": "./dist", // Output directory for compiled files
     "rootDir": "./src", // Root directory of your source files
     "strict": true, // Enable all strict type-checking options
@@ -10,10 +10,10 @@
     "skipLibCheck": true, // Skip type checking of declaration files
     "forceConsistentCasingInFileNames": true, // Enforce consistent file naming
     "declaration": false, // Generate declaration files (.d.ts)
-    "sourceMap": true, // Generate source maps for debugging
+    "sourceMap": false, // Generate source maps for debugging
     "lib": ["dom", "ES2018"],
     "declarationMap": false,
-    "typeRoots": ["types"]
+    "typeRoots": ["types"],
   },
   "include": ["src/**/*.ts"], // Specify which files to include in compilation
   "exclude": ["node_modules"] // Specify which files to exclude from compilation

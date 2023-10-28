@@ -1,19 +1,13 @@
-declare module "promise-manager" {
-  export type getModeObject = (config: { debugMode: boolean }) => {
-    SEQUENTIAL: () => (promises: (() => Promise<any>)[]) => Promise<any>;
-    BATCHED: (
-      batchSize?: number,
-      batchWiseCallback?: () => any
-    ) => (promises: (() => Promise<any>)[]) => Promise<any[]>;
-    PIPELINING: (
-      slotSize?: number
-    ) => (promiseCallbacks: (() => Promise<any>)[]) => Promise<any[]>;
-  };
 
-  export type GenericObject = { [props: string]: any };
+declare const getModeObject: (config: { debugMode?: boolean }) => {
+  SEQUENTIAL: () => (promises: (() => Promise<any>)[]) => Promise<any>;
+  BATCHED: (
+    batchSize?: number,
+    batchWiseCallback?: () => any
+  ) => (promises: (() => Promise<any>)[]) => Promise<any[]>;
+  PIPELINING: (
+    slotSize?: number
+  ) => (promiseCallbacks: (() => Promise<any>)[]) => Promise<any[]>;
+};
 
-  export interface IPromiseManager {
-    debugMode: boolean;
-    dispatch: (promises: Array<() => Promise<any>>) => Promise<any>;
-  }
-}
+export { getModeObject };
