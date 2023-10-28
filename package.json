@@ -17,8 +17,8 @@
   },
   "scripts": {
     "start": "npm run build:dev && node watcher.js ./src",
-    "build:dev": "cross-env BUILD_MODE=DEV webpack --config build/webpack.config.cjs",
-    "build:prod": "webpack --config build/webpack.config.cjs",
+    "build:dev": "tsc && cross-env BUILD_MODE=DEV webpack --config build/webpack.config.cjs",
+    "build:prod": "tsc && webpack --config build/webpack.config.cjs",
     "release": "tsc && npm run build:prod && rm -r release/* && mv -f dist/* release"
   },
   "author": "homeboy445",
