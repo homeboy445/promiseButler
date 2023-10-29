@@ -42,4 +42,5 @@ All notable changes to this project will be documented in this file.
 - The batch mode issue where the global promise was resolving earlier.
 
 ### Updated
+- Made `typescript` a dev dependency.
 

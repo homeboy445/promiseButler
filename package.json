@@ -23,9 +23,6 @@
   },
   "author": "homeboy445",
   "license": "MIT",
-  "dependencies": {
-    "typescript": "^5.2.2"
-  },
   "keywords": ["promise", "typescript"],
   "repository": {
     "type": "git",
@@ -37,6 +34,7 @@
   ],
   "types": "./types/index.d.ts",
   "devDependencies": {
+    "typescript": "^5.2.2",
     "@babel/core": "^7.22.17",
     "@babel/preset-env": "^7.22.15",
     "@types/node": "^20.6.0",
