@@ -1,5 +1,5 @@
 
-declare const getModeObject: (config: { debugMode?: boolean }) => {
+declare const getModeObject: (config?: { debugMode?: boolean }) => {
   SEQUENTIAL: () => (promises: (() => Promise<any>)[]) => Promise<any>;
   BATCHED: (
     batchSize?: number,
