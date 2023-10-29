@@ -6,7 +6,7 @@ The Promise Butler is a versatile JavaScript package designed to manage the exec
 # Installation
 
 ## Bundled File
-[main.min.js](https://github.com/homeboy445/promiseButler/blob/main/release/index.js)
+[main.min.js](https://github.com/homeboy445/promiseButler/blob/main/release/main.min.js)
 
 <br>
 

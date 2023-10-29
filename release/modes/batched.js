@@ -17,6 +17,7 @@ export default class BatchedFetch {
         this.BATCH_SIZE = 6;
         this.batchWiseCallback = (...args) => { };
         this.promiseResolvedStore = { resolve: (idx) => { } };
+        this.requestCounter = 0;
         this.debugMode = false;
         this.debugMode = debugMode !== null && debugMode !== void 0 ? debugMode : this.debugMode;
         this.BATCH_SIZE = batchSize !== null && batchSize !== void 0 ? batchSize : this.BATCH_SIZE;
@@ -36,15 +37,16 @@ export default class BatchedFetch {
             }
             this.log("Adding the promise in the array! ", idx);
             this.requestsArr.push(callback()
-                .then((r) => {
-                var _a, _b;
-                this.promiseResolvedStore[idx] = r;
-                (_b = (_a = this.promiseResolvedStore) === null || _a === void 0 ? void 0 : _a.resolve) === null || _b === void 0 ? void 0 : _b.call(_a, idx);
-            })
-                .catch((e) => (this.promiseResolvedStore[idx] = e)));
+                .then((r) => this.promiseResolvedStore[idx] = r)
+                .catch((e) => (this.promiseResolvedStore[idx] = e))
+                .then(() => { var _a, _b; return (_b = (_a = this.promiseResolvedStore) === null || _a === void 0 ? void 0 : _a.resolve) === null || _b === void 0 ? void 0 : _b.call(_a, idx); }));
             if (this.requestsArr.length == this.BATCH_SIZE) {
                 this.globalPromiseStore = {
-                    promise: Promise.all(this.requestsArr).then(() => {
+                    promise: Promise.all(this.requestsArr)
+                        .catch((e) => {
+                        this.log("There was an error while processing a batch: ", e);
+                    })
+                        .then(() => {
                         this.log("A batch got completed!");
                         this.batchWiseCallback(this.requestsArr);
                         this.requestsArr = [];
@@ -57,19 +59,18 @@ export default class BatchedFetch {
     }
     dispatch(promises) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (this.globalPromiseStore.pending) {
-                yield this.globalPromiseStore.promise;
-            }
             return new Promise((resolve) => {
                 this.promiseResolvedStore.resolve = (idx) => {
                     this.log("The promise at index", idx, " is complete!");
-                    if (promises.length - 1 == idx) {
+                    if (++this.requestCounter == promises.length) {
                         this.log("All of the promises are resolved!");
                         delete this.promiseResolvedStore.resolve;
                         resolve(Object.values(this.promiseResolvedStore));
                     }
                 };
-                promises.forEach(this.processPromise.bind(this));
+                for (let idx = 0; idx < promises.length; idx++) {
+                    this.processPromise(promises[idx], idx);
+                }
             });
         });
     }

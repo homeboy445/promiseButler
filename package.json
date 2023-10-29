@@ -1,6 +1,6 @@
 {
   "name": "promise-butler",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A package for managing multiple promises in various ways.",
   "main": "release/main.cjs",
   "browser": "release/main.min.js",
@@ -17,15 +17,16 @@
   },
   "scripts": {
     "start": "npm run build:dev && node watcher.js ./src",
-    "build:dev": "tsc && cross-env BUILD_MODE=DEV webpack --config build/webpack.config.cjs",
-    "build:prod": "tsc && webpack --config build/webpack.config.cjs",
-    "release": "tsc && npm run build:prod && rm -r release/* && mv -f dist/* release"
+    "build:dev": "tsc && cross-env BUILD_MODE=DEV webpack --config build/webpack.config.js",
+    "build:prod": "tsc && webpack --config build/webpack.config.js",
+    "release": "npm run build:prod && rm -r release/* && mv -f dist/* release"
   },
   "author": "homeboy445",
   "license": "MIT",
   "dependencies": {
     "typescript": "^5.2.2"
   },
+  "keywords": ["promise", "typescript"],
   "repository": {
     "type": "git",
     "url": "https://github.com/homeboy445/promiseButler"

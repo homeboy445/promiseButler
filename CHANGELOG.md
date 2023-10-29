@@ -33,3 +33,13 @@ All notable changes to this project will be documented in this file.
 
 ### Updated
 - Info in README.md about debugMode.
+
+## [1.0.8] - 2023-10-29
+
+### Added
+
+### Fixed
+- The batch mode issue where the global promise was resolving earlier.
+
+### Updated
+
