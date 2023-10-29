@@ -30,7 +30,7 @@ Install it via ```npm i promise-butler``` (https://www.npmjs.com/package/promise
 
 ## Below is for the usage via CDN & as a package.
 
-#### Tip: You can pass { debugMode: true } to getModeObject() as a parameter for enabling logging of the promises execution sequence and their results.
+<strong>Tip:</strong> You can pass ```{ debugMode: true }``` to getModeObject() as a parameter for enabling logging of the promises execution sequence and their results.
 
 ### SEQUENTIAL MODE
 - The executor callback will accept no params.
